@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="style.css" rel="stylesheet" />
+    <title>Frequency</title>
+  </head>
+  <body>
+    <div id="top-container">
+      <h3>
+        Line up the frequencies you hear. Click the canvas once you've found a
+        match. Submit your score by clicking "Get Scores" before clicking
+        anything else. <i>*Toggle the sound with the spacebar*</i>
+      </h3>
+      <input type="text" id="uname" name="fname" placeholder="username" />
+      <button id="send-name" class="send-name">send</button>
+      <!-- <p class="toggle">Tap To Toggle</p> -->
+      <button id="play-button" class="play-button">Start</button>
+      <button id="score-button" class="score-button">Get Scores</button>
+    </div>
+    <div id="score" class="score"></div>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.9/p5.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.1.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/addons/p5.sound.min.js"></script>
+    <script src="sketch.js"></script>
+  </body>
+</html>
