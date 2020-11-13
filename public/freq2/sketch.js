@@ -51,8 +51,8 @@ window.addEventListener('load', () => {
 
   sendButton.addEventListener("click", () => {
     curName = nameInput.value;
-    let msgObj = { "name": curName};
-    socket.emit('msg', msgObj);
+    // let msgObj = { "name": curName};
+    // socket.emit('msg', msgObj);
   });
 
 
@@ -70,8 +70,8 @@ window.addEventListener('load', () => {
       "date" : clientDate,
       "score" : score
     };
-    socket.emit('clientObject', clientObject)
-    modSocket.emit('clientObject', clientObject)
+    socket.emit('clientObject', clientObject);
+    modSocket.emit('clientObject', clientObject);
 
     //listen for data from the server
     socket.on('scoreBoard', (data) => {
@@ -175,10 +175,15 @@ function mouseMoved(event) {
     endShape();
 
   }
+
+function doubleClicked() {
+  score = abs(freqFromMouse() - freq1).toFixed(2);
+  console.log(score);
+};
   
-  function mouseClicked(event) {
-    score = abs(freqFromMouse() - freq1).toFixed(2);
-    console.log(score);
+function mouseClicked(event) {
+    // score = abs(freqFromMouse() - freq1).toFixed(2);
+    // console.log(score);
 
     waveform = analyzer.waveform();
     waveFreq = freqAnalyzer.analyze();

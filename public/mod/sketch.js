@@ -46,7 +46,7 @@ window.addEventListener('load', () => {
 
         //listen for data from the server
         scoreButton.addEventListener("click", () => {
-            socket.on('modBoard', (data) => {
+            socket.on('scoreBoard', (data) => {
                 let scoreBoardBox = document.getElementById('score');
     
                 for (let i = 0; i< data.length; i++) {

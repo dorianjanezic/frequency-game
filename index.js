@@ -7,7 +7,7 @@ app.use('/', express.static('public'));
 let http = require('http');
 let server = http.createServer(app);
 let port = process.env.PORT || 5000;
-app.listen(port, ()=> {
+server.listen(port, ()=> {
 console.log('listening at ', port);
 });
 
@@ -39,12 +39,12 @@ mod.on('connection', (socket) => {
         mod.emit('modFreq', frequencies)
     })
 
-    socket.on('clientObject', data => {
-        console.log(data);
-        allBoard.push(data);
+    // socket.on('clientObject', data => {
+    //     console.log(data);
+    //     allBoard.push(data);
 
-        mod.emit('modBoard', allBoard);
-    })
+    //     mod.emit('modBoard', allBoard);
+    // })
 });
 
 let scoreBoard = []; 
@@ -53,9 +53,10 @@ freq2.on('connection', (socket) => {
 
     // scoreBoard[socket.id]={};
 
-    socket.on('msg', (data) => {
-        // console.log(data);
-    })
+    // socket.on('msg', (data) => {
+    //     scoreBoard.push(data);
+    //     // console.log(data);
+    // });
 
     //getting username and score
     socket.on('clientObject', (data)=> {
@@ -77,12 +78,23 @@ freq2.on('connection', (socket) => {
         // }
 
         socket.emit('scoreBoard', scoreBoard);
+
+        // mod.emit('scoreBoard', scoreBoard);
         // freq2.emit('scoreBoard', scoreBoard);
         
-        // mod.emit('scoreBoard', scoreBoard);
+        mod.emit('scoreBoard', scoreBoard);
 
         // freq2.emit('scoreBoard', data);
     });
 });
 
 
+// freq2.on('connection', (socket) => {
+
+//     socket.on('clientObject', (data)=> {
+
+//         scoreBoard.push(data);
+
+//         socket.emit('scoreBoard', scoreBoard);
+//     });
+// });
